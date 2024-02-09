@@ -9,7 +9,9 @@ export const handler = async (
 ): Promise<APIGatewayProxyResult> => {
   console.log("", event);
 
-  const secret = getSecret();
+  const secret = await getSecret();
+
+  console.log("sec:", secret);
 
   return {
     body: `you are enough ${secret}`,
