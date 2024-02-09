@@ -10,7 +10,9 @@ export class TodoAppStack extends cdk.Stack {
     const api = new ApiGateway(this);
 
     const healthLambda = new Lambda(this, "health");
+    const inspirationLambda = new Lambda(this, "inspiration");
 
     api.addIntegration("GET", "/health", healthLambda);
+    api.addIntegration("GET", "/inspiration", inspirationLambda);
   }
 }
